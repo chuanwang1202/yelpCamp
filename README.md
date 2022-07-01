@@ -7,3 +7,4 @@ Built with:
 Front-end: ejs, Google Map APIs, Bootstrap
 Back-end: express, MongoDB, Mongoose, async, crypto, passport, passport-local, express-session, method-override, connect-flash, cloudinary, geocoder
 Platform: Cloudinary, Heroku
+Live: https://secure-eyrie-14103.herokuapp.com/home 
