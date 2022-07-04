@@ -93,13 +93,18 @@ app.use(campgroundRoute);
 app.use(reviewRoute);
 app.use(userRoute);
 
+app.get('/', (req, res) => {
+    res.render('home')
+});
+
 app.all("*", (req, res, next) =>{
     next(new ExpressError("Page Not Found!", 404));
 })
 
 app.use((err, req, res, next) => {
-    const {message = "Sth is Wrong!", status = 500} = err;
-    res.status(status).render("error", {message, status});
+    const {status = 500} = err;
+    if (!err.message) err.message = 'Oh No, Something Went Wrong!'
+    res.status(status).render("error", {err});
     }
 )
 const port = process.env.PORT || 3000;
